@@ -8,13 +8,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="description" content="Faça seu pedido online no Chapa Quente! Lanches, hambúrgueres, kikões, combos, pastéis e pizzas quentinhas para entrega rápida." />
-  
+
   <title>Chapa Quente • Delivery Online</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/img/logo-placeholder.svg" />
 
-  <!-- Google Fonts: Poppins -->
+  <!-- Fonte Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -43,7 +43,7 @@
       <!-- Detalhes da Loja e Identidade -->
       <div class="store-details">
         <div class="store-identity">
-          
+
           <!-- ==================================================================
                LOGO DA LANCHONETE (PERSONALIZAÇÃO DA LOGO)
                Para inserir sua logo oficial:
@@ -52,11 +52,11 @@
                Exemplo: src="assets/img/minha-logo.png"
                ================================================================== -->
           <div class="logo-wrapper" title="Clique para alterar a logo">
-            <img 
-              id="store-logo" 
-              class="store-logo-img" 
-              src="assets/img/logo-placeholder.svg" 
-              alt="Logo da Lanchonete Chapa Quente" 
+            <img
+              id="store-logo"
+              class="store-logo-img"
+              src="assets/img/logo-placeholder.svg"
+              alt="Logo da Lanchonete Chapa Quente"
             />
             <div class="logo-edit-hint" title="Espaço para sua Logo">🍔</div>
           </div>
@@ -82,12 +82,12 @@
       <div class="search-wrapper">
         <div class="search-input-box">
           <span class="search-icon">🔍</span>
-          <input 
-            type="text" 
-            id="search-input" 
-            class="search-input" 
-            placeholder="O que você quer comer hoje?" 
-            autocomplete="off" 
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="O que você quer comer hoje?"
+            autocomplete="off"
           />
           <button id="search-clear" class="search-clear-btn" title="Limpar busca">✕</button>
         </div>
@@ -128,7 +128,7 @@
   </div>
 
   <!-- ==========================================================================
-       BARRA DE NAVEGAÇÃO INFERIOR (BOTTOM TABS) - IDÊNTICA AO YOOGA
+       BARRA DE NAVEGAÇÃO INFERIOR
        ========================================================================== -->
   <nav class="bottom-tab-bar" aria-label="Navegação Principal">
     <!-- 1. Início -->
@@ -189,9 +189,9 @@
         <label class="modal-obs-label" for="modal-obs">
           Alguma observação? <small style="font-weight: 400; color: var(--gray-500);">(Opcional)</small>
         </label>
-        <textarea 
-          id="modal-obs" 
-          class="modal-obs-input" 
+        <textarea
+          id="modal-obs"
+          class="modal-obs-input"
           placeholder="Ex: Sem salada, bem passado, maionese à parte..."
         ></textarea>
       </div>
@@ -215,7 +215,7 @@
   <div class="drawer-backdrop" id="cart-drawer-backdrop">
     <aside class="cart-drawer" id="cart-drawer">
       <div class="drawer-handle-bar"></div>
-      
+
       <!-- Cabeçalho da Gaveta -->
       <div class="drawer-header">
         <h3 class="drawer-title">
@@ -226,7 +226,7 @@
 
       <!-- Conteúdo da Gaveta -->
       <div class="drawer-body">
-        
+
         <!-- Estado Vazio -->
         <div class="cart-empty" id="cart-empty-state">
           <div class="cart-empty-icon">🛍️</div>
@@ -402,7 +402,7 @@
         <button class="drawer-close" id="btn-close-coupons">✕</button>
       </div>
       <div class="tab-sheet-body">
-        
+
         <div class="coupon-card">
           <div class="coupon-info">
             <h4>R$ 5,00 OFF</h4>
@@ -469,7 +469,7 @@
 
         <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--gray-200); text-align: center;">
           <p style="font-size: 0.78rem; color: var(--gray-500); margin-bottom: 8px;">Precisa de ajuda com seu pedido?</p>
-          <a href="https://wa.me/5592994904803" target="_blank" class="btn-whatsapp-order" style="font-size: 0.85rem; padding: 9px 14px;">
+          <a id="support-whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-order" style="font-size: 0.85rem; padding: 9px 14px;">
             <span>Falar com o Restaurante</span> 💬
           </a>
         </div>

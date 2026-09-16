@@ -1,85 +1,54 @@
-# 🍔 Cardápio Digital & Delivery Web - Chapa Quente
+# Chapa Quente — Cardápio Digital
 
-Cardápio digital moderno, responsivo e interativo no formato de aplicativo de celular, inspirado fielmente na experiência do **Yooga Delivery** (`delivery.yooga.app/chapa-quente/tabs/home`).
+Aplicação web estática, responsiva e mobile-first para apresentar um cardápio, montar pedidos e encaminhá-los ao WhatsApp da loja.
 
----
+## Publicação no GitHub Pages
 
-## 🚀 Como Visualizar o Cardápio
+1. Crie um repositório vazio no GitHub, sem adicionar README, licença ou `.gitignore` pela interface.
+2. No terminal, dentro desta pasta, registre a primeira versão (caso ela ainda não tenha sido criada):
 
-Você pode abrir o cardápio de duas maneiras:
-
-1. **Pelo Navegador (Servidor Local)**:
-   - Acesse: **`http://localhost:8080/`**
-2. **Direto pelo arquivo**:
-   - Dê um duplo clique no arquivo **`index.html`** para abrir no Chrome, Edge ou qualquer navegador.
-
----
-
-## 🎨 Como Inserir a sua Logo Oficial
-
-O sistema já vem com uma logo provisória profissional vetorizada (`assets/img/logo-placeholder.svg`). Quando você estiver pronto para inserir a sua própria logo:
-
-### Opção 1 (Mais fácil - Substituição de arquivo):
-1. Salve a imagem da sua logo com o nome **`logo.png`** (ou `.jpg` / `.webp`) dentro da pasta **`assets/img/`**.
-2. Abra o arquivo **`index.html`** no Bloco de Notas ou editor de código.
-3. Procure por `assets/img/logo-placeholder.svg` (por volta da linha 48):
-   ```html
-   <img 
-     id="store-logo" 
-     class="store-logo-img" 
-     src="assets/img/logo.png" 
-     alt="Logo da Lanchonete" 
-   />
+   ```bash
+   git init -b main
+   git add .
+   git commit -m "Initial commit"
    ```
-4. Salve o arquivo e atualize a página no navegador.
 
-### Opção 2 (Link / URL da internet):
-Cole o link direto da imagem no `src`:
-```html
-<img id="store-logo" class="store-logo-img" src="https://seusite.com/sua-logo.png" alt="Logo" />
+3. Conecte o repositório e envie os arquivos:
+
+   ```bash
+   git remote add origin https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+4. No GitHub, acesse **Settings → Pages**. Em **Build and deployment**, selecione **Deploy from a branch**, a branch `main` e a pasta `/(root)`.
+5. Salve e aguarde a URL pública exibida pelo GitHub Pages.
+
+O arquivo `.nojekyll` garante que os arquivos estáticos sejam publicados sem processamento pelo Jekyll.
+
+## Execução local
+
+Abra `index.html` diretamente no navegador ou sirva a pasta com um servidor estático. Por exemplo:
+
+```bash
+npx serve .
 ```
 
----
+## Personalização obrigatória
 
-## ⚙️ Como Alterar WhatsApp, Chave PIX e Dados da Loja
+Revise `js/products.js` antes de disponibilizar o site:
 
-Abra o arquivo **`js/products.js`**. Logo no início você encontrará as configurações:
+- Dados da loja, WhatsApp, PIX, taxas e horário ficam em `STORE_CONFIG`.
+- Produtos, preços, descrições e imagens ficam em `PRODUCTS`.
+- Use uma logo própria em `assets/img/` e atualize a referência em `index.html`.
+- Informe o endereço de retirada ao cliente pelo WhatsApp até que ele seja configurado na interface.
 
-```javascript
-const STORE_CONFIG = {
-  name: "Chapa Quente",                         // Nome da Lanchonete
-  slogan: "Procure qualidade, não preço.",      // Slogan / Frase
-  whatsapp: "5592994904803",                    // Número que vai receber os pedidos (DDI + DDD + Número)
-  whatsappDisplay: "(92) 99490-4803",          // Número visível na tela
-  pixKey: "(92) 99490-4803",                    // Sua chave PIX
-  pixName: "Ana Silva",                         // Titular da conta PIX
-  cardDebitTax: 1.00,                           // Taxa da maquininha no débito (R$)
-  cardCreditTax: 2.00,                          // Taxa da maquininha no crédito (R$)
-  minOrder: 10.00,                              // Valor do pedido mínimo (R$)
-  defaultDeliveryFee: 5.00,                     // Taxa de entrega padrão
-  deliveryTimeMin: 45,                          // Tempo mín de entrega
-  deliveryTimeMax: 70,                          // Tempo máx de entrega
-  operatingHours: "Terça a Domingo das 18h às 02h"
-};
-```
+## Privacidade e direitos de uso
 
----
+O site grava somente nome, telefone e histórico de pedidos no armazenamento local do navegador do cliente. Não há backend, banco de dados nem credenciais neste repositório.
 
-## 📱 Recursos e Telas Inclusas
+As imagens de produtos atualmente apontam para um serviço de terceiros. Antes de publicar, substitua-as por imagens próprias ou confirme que possui licença/autorização para utilizá-las e hospedá-las dessa forma. Não publique conteúdo de terceiros como se fosse seu.
 
-- **Formato 100% Mobile (App de Celular)**:
-  - Centralizado no computador com proporções exatas de smartphone.
-  - Ocupa 100% da tela em celulares reais, com suporte a entalhe de tela (*notch*).
-  - Cards de produtos em 1 coluna vertical com fotos e botões rápidos.
-- **Barra de Navegação Inferior (Estilo Yooga)**:
-  - 🏠 **Início**: Retorna ao topo do cardápio.
-  - 🧾 **Pedidos**: Histórico de pedidos realizados pelo cliente para repetir com facilidade.
-  - 🎟️ **Cupons**: Cupons de desconto ativos com aplicação automática na sacola.
-  - 👤 **Perfil**: Salva nome e WhatsApp do cliente no aparelho e botão de suporte.
-- **Cardápio Completo Extraído do Yooga**:
-  - 179 itens cadastrados em 13 categorias com fotos reais e descrições.
-- **Sacola de Compras com Checkout via WhatsApp**:
-  - Seletor de **Entrega (Delivery)** ou **Retirada no Balcão**.
-  - 47 bairros com cálculo automático da taxa e tempo de entrega.
-  - Opções de pagamento: **PIX** (com botão de copiar chave), **Cartão de Crédito/Débito** e **Dinheiro (com troco)**.
-  - Finalização em 1 clique enviando o pedido formatado direto para o WhatsApp do restaurante.
+## Tecnologias
+
+HTML, CSS e JavaScript puro. Não há dependências para instalar nem etapa de compilação.
