@@ -1,12 +1,17 @@
 # 🍔 Cardápio Digital & Delivery Web - Chapa Quente
 
-Cardápio digital moderno, responsivo e interativo para lanchonete, inspirado fielmente na experiência do aplicativo **Yooga Delivery** (`delivery.yooga.app/chapa-quente/tabs/home`).
+Cardápio digital moderno, responsivo e interativo no formato de aplicativo de celular, inspirado fielmente na experiência do **Yooga Delivery** (`delivery.yooga.app/chapa-quente/tabs/home`).
 
 ---
 
 ## 🚀 Como Visualizar o Cardápio
 
-Basta dar um duplo clique no arquivo **`index.html`** para abrir o cardápio em qualquer navegador (Google Chrome, Edge, Firefox, celular, etc.). Não é necessário instalar nenhum servidor ou programa adicional!
+Você pode abrir o cardápio de duas maneiras:
+
+1. **Pelo Navegador (Servidor Local)**:
+   - Acesse: **`http://localhost:8080/`**
+2. **Direto pelo arquivo**:
+   - Dê um duplo clique no arquivo **`index.html`** para abrir no Chrome, Edge ou qualquer navegador.
 
 ---
 
@@ -15,9 +20,9 @@ Basta dar um duplo clique no arquivo **`index.html`** para abrir o cardápio em 
 O sistema já vem com uma logo provisória profissional vetorizada (`assets/img/logo-placeholder.svg`). Quando você estiver pronto para inserir a sua própria logo:
 
 ### Opção 1 (Mais fácil - Substituição de arquivo):
-1. Salve a sua imagem com o nome **`logo.png`** (ou `.jpg`) dentro da pasta **`assets/img/`**.
+1. Salve a imagem da sua logo com o nome **`logo.png`** (ou `.jpg` / `.webp`) dentro da pasta **`assets/img/`**.
 2. Abra o arquivo **`index.html`** no Bloco de Notas ou editor de código.
-3. Procure por `assets/img/logo-placeholder.svg` (por volta da linha 47):
+3. Procure por `assets/img/logo-placeholder.svg` (por volta da linha 48):
    ```html
    <img 
      id="store-logo" 
@@ -26,19 +31,19 @@ O sistema já vem com uma logo provisória profissional vetorizada (`assets/img/
      alt="Logo da Lanchonete" 
    />
    ```
-4. Salve e recarregue a página no navegador.
+4. Salve o arquivo e atualize a página no navegador.
 
 ### Opção 2 (Link / URL da internet):
-Você também pode colar direto o link de uma imagem da internet no `src`:
+Cole o link direto da imagem no `src`:
 ```html
 <img id="store-logo" class="store-logo-img" src="https://seusite.com/sua-logo.png" alt="Logo" />
 ```
 
 ---
 
-## ⚙️ Como Alterar WhatsApp, Chave PIX e Nome da Loja
+## ⚙️ Como Alterar WhatsApp, Chave PIX e Dados da Loja
 
-Abra o arquivo **`js/products.js`**. Logo no início você encontrará as configurações da lanchonete:
+Abra o arquivo **`js/products.js`**. Logo no início você encontrará as configurações:
 
 ```javascript
 const STORE_CONFIG = {
@@ -54,29 +59,27 @@ const STORE_CONFIG = {
   defaultDeliveryFee: 5.00,                     // Taxa de entrega padrão
   deliveryTimeMin: 45,                          // Tempo mín de entrega
   deliveryTimeMax: 70,                          // Tempo máx de entrega
+  operatingHours: "Terça a Domingo das 18h às 02h"
 };
 ```
 
-Qualquer alteração feita nesse bloco atualiza automaticamente todos os cálculos, botões e mensagens do WhatsApp!
-
 ---
 
-## 📱 Recursos Inclusos na Aplicação
+## 📱 Recursos e Telas Inclusas
 
-- **Busca em Tempo Real**: Filtro instantâneo por nome ou ingrediente.
-- **Abas de Categorias**: Navegação rápida com ícones e quantidade de itens.
+- **Formato 100% Mobile (App de Celular)**:
+  - Centralizado no computador com proporções exatas de smartphone.
+  - Ocupa 100% da tela em celulares reais, com suporte a entalhe de tela (*notch*).
+  - Cards de produtos em 1 coluna vertical com fotos e botões rápidos.
+- **Barra de Navegação Inferior (Estilo Yooga)**:
+  - 🏠 **Início**: Retorna ao topo do cardápio.
+  - 🧾 **Pedidos**: Histórico de pedidos realizados pelo cliente para repetir com facilidade.
+  - 🎟️ **Cupons**: Cupons de desconto ativos com aplicação automática na sacola.
+  - 👤 **Perfil**: Salva nome e WhatsApp do cliente no aparelho e botão de suporte.
 - **Cardápio Completo Extraído do Yooga**:
-  - Promoções 🔥
-  - Sanduíches Tradicionais (X-Salada, X-Tudo, Artesanal, Supremo, etc.) 🍔
-  - Kikão & Dogs (Tradicional, Com Queijo, Coalho, Bacon, etc.) 🌭
-  - Batatas Fritas & Turbinadas 🍟
-  - Combos Caixa (Combo Maluco, Brocado, Família, Larica, etc.) 📦
-  - Pizzas Tradicionais, Especiais e Doces 🍕
-  - Pastéis Fritos Recheados 🥟
-  - Sucos Naturais e Refrigerantes 🥤
-- **Modal de Personalização**: Campo para o cliente digitar observações (ex: "Sem cebola", "Ponto da carne").
-- **Sacola de Compras Dinâmica**:
-  - Escolha entre **Entrega** ou **Retirar no Balcão**.
-  - Lista de 47 bairros com taxas calculadas automaticamente.
-  - Formas de pagamento (PIX com botão copiar chave, Cartões com taxa, Dinheiro com troco).
-- **Checkout Direto no WhatsApp**: Monta a mensagem completa e abre o WhatsApp da loja em 1 clique.
+  - 179 itens cadastrados em 13 categorias com fotos reais e descrições.
+- **Sacola de Compras com Checkout via WhatsApp**:
+  - Seletor de **Entrega (Delivery)** ou **Retirada no Balcão**.
+  - 47 bairros com cálculo automático da taxa e tempo de entrega.
+  - Opções de pagamento: **PIX** (com botão de copiar chave), **Cartão de Crédito/Débito** e **Dinheiro (com troco)**.
+  - Finalização em 1 clique enviando o pedido formatado direto para o WhatsApp do restaurante.
